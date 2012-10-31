@@ -78,7 +78,7 @@ class User_Dropbox extends ClearOS_Controller
         }
 
         $user_info = $this->user->get_info();
-        $is_dropbox_user = ($user_info['plugins']['dropbox']) ? TRUE : FALSE;
+        $is_dropbox_user = ($user_info['plugins']['user_dropbox']) ? TRUE : FALSE;
 
         $url = $this->dropbox->get_user_url_link($username);
 
@@ -179,7 +179,7 @@ class User_Dropbox extends ClearOS_Controller
         $data = array();
 
         $user_info = $this->user->get_info();
-        $is_dropbox_user = ($user_info['plugins']['dropbox']) ? TRUE : FALSE;
+        $is_dropbox_user = ($user_info['plugins']['user_dropbox']) ? TRUE : FALSE;
 
         // Bail if root
         //-------------
@@ -287,7 +287,7 @@ class User_Dropbox extends ClearOS_Controller
         }
 
         $user_info = $this->user->get_info();
-        $is_dropbox_user = ($user_info['plugins']['dropbox']) ? TRUE : FALSE;
+        $is_dropbox_user = ($user_info['plugins']['user_dropbox']) ? TRUE : FALSE;
 
         if (!$is_dropbox_user) {
             echo json_encode(array('code' => 500, 'errmsg' => lang('dropbox_user_no_access')));
