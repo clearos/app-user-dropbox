@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * Dropbox reset account view.
+ *
+ * @category   ClearOS
+ * @package    User_Dropbox
+ * @subpackage Views
+ * @author     ClearFoundation <developer@clearfoundation.com>
+ * @copyright  2012 ClearFoundation
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
+ * @link       http://www.clearfoundation.com/docs/developer/apps/user_dropbox/
+ */
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+// Load dependencies
+///////////////////////////////////////////////////////////////////////////////
+
+$this->lang->load('dropbox');
+
+///////////////////////////////////////////////////////////////////////////////
+// Infobox
+///////////////////////////////////////////////////////////////////////////////
+
+echo infobox_warning(
+    lang('base_warning'), lang('dropbox_reset_confirm') .
+    "<div style='text-align: center; margin-top: 10px;'>" .
+    field_button_set(
+        array(
+            anchor_custom('/app/user_dropbox/reset_account/confirm', lang('dropbox_reset_delete')),
+            anchor_cancel('/app/user_dropbox', lang('base_cancel'))
+        )
+    ) .
+    "</div>"
+);
+
