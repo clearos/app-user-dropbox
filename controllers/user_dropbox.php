@@ -172,7 +172,6 @@ class User_Dropbox extends ClearOS_Controller
 
         $this->lang->load('user_dropbox');
         $this->load->library('dropbox/Dropbox');
-        $this->load->library('base/Daemon', 'dropbox');
         $this->load->factory('mode/Mode_Factory');
         $this->load->factory('users/User_Factory', $username);
 
