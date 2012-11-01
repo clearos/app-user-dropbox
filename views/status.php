@@ -56,7 +56,7 @@ if ($size == 0) {
     echo field_info(
         'link',
         lang('user_dropbox_url_link'),
-        anchor_custom($url, lang('base_go'), 'high')
+        anchor_custom($url, lang('user_dropbox_authenticate_to_service'), 'high')
     );
 }
 echo field_button_set(

@@ -23,8 +23,8 @@ require_once $bootstrap . '/bootstrap.php';
 // T R A N S L A T I O N S
 ///////////////////////////////////////////////////////////////////////////////
 
-clearos_load_language('user_dropbox');
 clearos_load_language('base');
+clearos_load_language('user_dropbox');
 
 ///////////////////////////////////////////////////////////////////////////////
 // J A V A S C R I P T
@@ -40,6 +40,10 @@ $(document).ready(function() {
         $('#sync_now').hide();
         $('#sync_status').show();
         init_progress();
+    });
+
+    $('#sync_url').click(function(e) {
+        window.location = '/app/user_dropbox';
     });
 });
 

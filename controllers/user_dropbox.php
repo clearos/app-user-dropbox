@@ -30,6 +30,13 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////
+// D E P E N D E N C I E S
+///////////////////////////////////////////////////////////////////////////////
+
+use \clearos\apps\base\Folder_Not_Found_Exception as Folder_Not_Found_Exception;
+use \Exception as Exception;
+
+///////////////////////////////////////////////////////////////////////////////
 // C L A S S
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -78,7 +85,7 @@ class User_Dropbox extends ClearOS_Controller
         }
 
         $user_info = $this->user->get_info();
-        $is_dropbox_user = ($user_info['plugins']['user_dropbox']) ? TRUE : FALSE;
+        $is_dropbox_user = ($user_info['plugins']['dropbox']) ? TRUE : FALSE;
 
         $url = $this->dropbox->get_user_url_link($username);
 
@@ -149,10 +156,12 @@ class User_Dropbox extends ClearOS_Controller
         else
             $data['enabled'] = FALSE;
 
-        $this->load->library('base/Folder', "/home/$username/Dropbox");
-        $data['size'] = 0;
-        if ($this->folder->exists())
-            $data['size'] = $this->folder->get_size();
+        try {
+            $data['size'] = $this->dropbox->get_folder_size($username);
+        } catch (Folder_Not_Found_Exception $e) {
+            $this->page->set_message(lang('user_dropbox_waiting_confirmation'), 'info');
+            $data['size'] = 0;
+        }
         $data['url'] = $url;
         $this->page->view_form('status', $data, lang('user_dropbox_app_name'));
     }
@@ -178,7 +187,7 @@ class User_Dropbox extends ClearOS_Controller
         $data = array();
 
         $user_info = $this->user->get_info();
-        $is_dropbox_user = ($user_info['plugins']['user_dropbox']) ? TRUE : FALSE;
+        $is_dropbox_user = ($user_info['plugins']['dropbox']) ? TRUE : FALSE;
 
         // Bail if root
         //-------------
@@ -191,6 +200,11 @@ class User_Dropbox extends ClearOS_Controller
         if (!$is_dropbox_user) {
             $data['err'] = lang('dropbox_user_no_access');
             $this->page->view_form('no_access', $data, lang('user_dropbox_app_name'));
+            return;
+        }
+        if ($this->dropbox->get_user_url_link($username) != NULL) {
+            $this->page->set_message(lang('user_dropbox_waiting_confirmation'), 'info');
+            redirect('/user_dropbox');
             return;
         }
 
@@ -237,7 +251,7 @@ class User_Dropbox extends ClearOS_Controller
             $first = NULL;
             foreach ($contents as $line) {
                 $first = $line;
-                if (preg_match("/.*(https.*en_US).*/", $line, $match)) {
+                if (preg_match("/.*(https.*cl=[\w_]+)\s+.*/", $line, $match)) {
                     if (!in_array($username, $configured_users) && !in_array($username, $disabled_users)) {
                         $configured_users[] = $username;
                         $this->dropbox->set_configured_users($configured_users);
@@ -286,7 +300,7 @@ class User_Dropbox extends ClearOS_Controller
         }
 
         $user_info = $this->user->get_info();
-        $is_dropbox_user = ($user_info['plugins']['user_dropbox']) ? TRUE : FALSE;
+        $is_dropbox_user = ($user_info['plugins']['dropbox']) ? TRUE : FALSE;
 
         if (!$is_dropbox_user) {
             echo json_encode(array('code' => 500, 'errmsg' => lang('dropbox_user_no_access')));
