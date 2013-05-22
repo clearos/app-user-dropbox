@@ -3,9 +3,9 @@
 /**
  * Setup Dropbox account view.
  *
- * @category   ClearOS
- * @package    User_Dropbox
- * @subpackage Views
+ * @category   apps
+ * @package    user-dropbox
+ * @subpackage views
  * @author     ClearFoundation <developer@clearfoundation.com>
  * @copyright  2012 ClearFoundation
  * @license    http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
