@@ -1,7 +1,7 @@
 
 Name: app-user-dropbox
 Epoch: 1
-Version: 1.0.0
+Version: 1.5.10
 Release: 1%{dist}
 Summary: Dropbox
 License: GPLv3
@@ -16,7 +16,7 @@ Requires: app-accounts
 Dropbox is a cloud-based file storage and synchronization service.  Use this app to synchronize files to a folder located in your home directory which can then be accessed by any device associated to the same Dropbox account (laptop, mobile, tablet etc.).
 
 %package core
-Summary: Dropbox - APIs and install
+Summary: Dropbox - Core
 License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core

@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'user_dropbox';
-$app['version'] = '1.0.0';
+$app['version'] = '1.5.10';
 $app['release'] = '1';
 $app['vendor'] = 'ClearFoundation';
 $app['packager'] = 'ClearFoundation';
@@ -20,6 +20,8 @@ $app['description'] = lang('user_dropbox_app_description');
 $app['name'] = lang('user_dropbox_app_name');
 $app['category'] = lang('base_category_my_account');
 $app['subcategory'] = lang('base_subcategory_accounts');
+
+$app['user_access'] = TRUE;
 
 /////////////////////////////////////////////////////////////////////////////
 // Controllers
