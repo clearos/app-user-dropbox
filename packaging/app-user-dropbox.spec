@@ -3,7 +3,7 @@ Name: app-user-dropbox
 Epoch: 1
 Version: 1.5.10
 Release: 1%{dist}
-Summary: Dropbox
+Summary: **user_dropbox_app_name**
 License: GPLv3
 Group: ClearOS/Apps
 Source: %{name}-%{version}.tar.gz
@@ -13,10 +13,10 @@ Requires: app-base
 Requires: app-accounts
 
 %description
-Dropbox is a cloud-based file storage and synchronization service.  Use this app to synchronize files to a folder located in your home directory which can then be accessed by any device associated to the same Dropbox account (laptop, mobile, tablet etc.).
+**user_dropbox_app_description**
 
 %package core
-Summary: Dropbox - Core
+Summary: **user_dropbox_app_name** - Core
 License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
@@ -25,7 +25,7 @@ Requires: app-user-dropbox-plugin-core
 Requires: system-users-driver
 
 %description core
-Dropbox is a cloud-based file storage and synchronization service.  Use this app to synchronize files to a folder located in your home directory which can then be accessed by any device associated to the same Dropbox account (laptop, mobile, tablet etc.).
+**user_dropbox_app_description**
 
 This package provides the core API and libraries.
 
