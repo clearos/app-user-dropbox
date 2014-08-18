@@ -247,11 +247,12 @@ class User_Dropbox extends ClearOS_Controller
             $disabled_users = $this->dropbox->get_disabled_users();
 
             $contents = $this->dropbox->get_user_log($username);
-
             $first = NULL;
             foreach ($contents as $line) {
+                if (preg_match("/Another instance of Dropbox.*/", $line, $match))
+                    continue;
                 $first = $line;
-                if (preg_match("/.*(https.*cl=[\w_]+)\s+.*/", $line, $match)) {
+                if (preg_match("/.*(https\S+)\s+.*/", $line, $match)) {
                     if (!in_array($username, $configured_users) && !in_array($username, $disabled_users)) {
                         $configured_users[] = $username;
                         $this->dropbox->set_configured_users($configured_users);

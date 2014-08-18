@@ -1,9 +1,9 @@
 
 Name: app-user-dropbox
 Epoch: 1
-Version: 1.5.10
+Version: 1.6.0
 Release: 1%{dist}
-Summary: **user_dropbox_app_name**
+Summary: Dropbox
 License: GPLv3
 Group: ClearOS/Apps
 Source: %{name}-%{version}.tar.gz
@@ -13,10 +13,10 @@ Requires: app-base
 Requires: app-accounts
 
 %description
-**user_dropbox_app_description**
+Dropbox is a cloud-based file storage and synchronization service.  Use this app to synchronize files to a folder located in your home directory which can then be accessed by any device associated to the same Dropbox account (laptop, mobile, tablet etc.).
 
 %package core
-Summary: **user_dropbox_app_name** - Core
+Summary: Dropbox - Core
 License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
@@ -25,7 +25,7 @@ Requires: app-user-dropbox-plugin-core
 Requires: system-users-driver
 
 %description core
-**user_dropbox_app_description**
+Dropbox is a cloud-based file storage and synchronization service.  Use this app to synchronize files to a folder located in your home directory which can then be accessed by any device associated to the same Dropbox account (laptop, mobile, tablet etc.).
 
 This package provides the core API and libraries.
 
@@ -75,9 +75,7 @@ exit 0
 %files core
 %defattr(-,root,root)
 %exclude /usr/clearos/apps/user_dropbox/packaging
-%exclude /usr/clearos/apps/user_dropbox/tests
 %dir /usr/clearos/apps/user_dropbox
 /usr/clearos/apps/user_dropbox/deploy
 /usr/clearos/apps/user_dropbox/language
-/usr/clearos/apps/user_dropbox/libraries
 /var/clearos/base/access_control/authenticated/user_dropbox
