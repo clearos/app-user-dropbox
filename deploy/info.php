@@ -28,7 +28,7 @@ $app['user_access'] = TRUE;
 /////////////////////////////////////////////////////////////////////////////
 
 $app['controllers']['user_dropbox']['title'] = $app['name'];
-$app['controllers']['dropbox']['title'] = lang('user_dropbox_dropbox');
+$app['controllers']['dropbox']['title'] = lang('user_dropbox_app_name');
 
 /////////////////////////////////////////////////////////////////////////////
 // Packaging
