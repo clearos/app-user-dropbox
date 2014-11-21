@@ -40,6 +40,7 @@ $app['requires'] = array(
 
 $app['core_requires'] = array(
     'app-accounts-core',
+    'app-dropbox-core',
     'app-user-dropbox-plugin-core',
     'system-users-driver'
 );
