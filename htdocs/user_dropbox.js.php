@@ -77,7 +77,6 @@ function init_progress()
             if (data.code == 0) {
                 window.setTimeout(log_progress, 3000);
             } else {
-                console.log(data);
                 $('#sync_status').html(data.errmsg);
                 // Hack...just change the font to more 'alerty'
                 $('#sync_status').addClass('theme-validation-error');
@@ -110,7 +109,6 @@ function log_progress()
                 // No data yet...keep on whirlying
                 window.setTimeout(log_progress, 2000);
             } else {
-                console.log(data);
                 $('#sync_status').html(data.errmsg);
                 // Hack...just change the font to more 'alerty'
                 $('#sync_status').addClass('theme-validation-error');

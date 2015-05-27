@@ -21,6 +21,7 @@ License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
 Requires: app-accounts-core
+Requires: app-dropbox-core
 Requires: app-user-dropbox-plugin-core
 Requires: system-users-driver
 

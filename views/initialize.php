@@ -47,16 +47,16 @@ echo infobox_highlight(
     "</div>" .
     "<div style='text-align: center; margin-top: 10px;'>" .
     anchor_custom(
-        '/app/user_dropbox/initialize/sync',
+        '#',
         lang('user_dropbox_sync_now'),
         'high',
         array('id' => 'sync_now')
     ) .
     "</div>" .
-    "<div id='sync_status' style='text-align: center; margin-top: 10px; display: none;'>" .
+    "<div id='sync_status' style='text-align: center; margin-top: 10px;' class='theme-hidden'>" .
     loading('normal', lang('user_dropbox_starting_account_init')) .
     "</div>" .
-    "<div id='sync_url_link' style='text-align: center; margin-top: 10px; display: none;'>" .
+    "<div id='sync_url_link' style='text-align: center; margin-top: 10px;' class='theme-hidden'>" .
     anchor_custom('#', lang('user_dropbox_authentication'), 'high', array('id' => 'sync_url', 'target' => '_blank')) .
     "</div>"
 );
