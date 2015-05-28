@@ -47,7 +47,7 @@ echo infobox_highlight(
     "</div>" .
     "<div style='text-align: center; margin-top: 10px;'>" .
     "<span style='margin-right: 5px'>" .
-    anchor_custom('http://www.dropbox.com', lang('user_dropbox_create_account'), 'high', array('target' => '_blank')) .
+    anchor_custom('https://db.tt/hydbtZaf', lang('user_dropbox_create_account'), 'high', array('target' => '_blank')) .
     "</spam>" .
     "<span style='margin-left: 5px;'>" .
     anchor_custom('user_dropbox/initialize', lang('user_dropbox_have_account')) .

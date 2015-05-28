@@ -7,7 +7,7 @@
  * @package    user-dropbox
  * @subpackage views
  * @author     ClearFoundation <developer@clearfoundation.com>
- * @copyright  2012 ClearFoundation
+ * @copyright  2012-2015 ClearFoundation
  * @license    http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
  * @link       http://www.clearfoundation.com/docs/developer/apps/user_dropbox/
  */
@@ -45,7 +45,7 @@ echo infobox_highlight(
     "<div id='step_2_help'>" .
     lang('user_dropbox_initialize_dropbox_sync_help') .
     "</div>" .
-    "<div style='text-align: center; margin-top: 10px;'>" .
+    "<div style='text-align: center; margin-top: 10px;' class='theme-center-text'>" .
     anchor_custom(
         '#',
         lang('user_dropbox_sync_now'),
@@ -53,10 +53,10 @@ echo infobox_highlight(
         array('id' => 'sync_now')
     ) .
     "</div>" .
-    "<div id='sync_status' style='text-align: center; margin-top: 10px;' class='theme-hidden'>" .
+    "<div id='sync_status' style='margin-top: 10px;' class='theme-center-text theme-hidden'>" .
     loading('normal', lang('user_dropbox_starting_account_init')) .
     "</div>" .
-    "<div id='sync_url_link' style='text-align: center; margin-top: 10px;' class='theme-hidden'>" .
+    "<div id='sync_url_link' style='margin-top: 10px;' class='theme-center-text theme-hidden'>" .
     anchor_custom('#', lang('user_dropbox_authentication'), 'high', array('id' => 'sync_url', 'target' => '_blank')) .
     "</div>"
 );

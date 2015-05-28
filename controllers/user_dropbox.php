@@ -159,7 +159,7 @@ class User_Dropbox extends ClearOS_Controller
         try {
             $data['size'] = $this->dropbox->get_folder_size($username);
         } catch (Folder_Not_Found_Exception $e) {
-            $this->page->set_message(lang('user_dropbox_waiting_confirmation'), 'info');
+            $data['wait'] = lang('user_dropbox_waiting_confirmation');
             $data['size'] = 0;
         }
         $data['url'] = $url;
@@ -335,6 +335,7 @@ class User_Dropbox extends ClearOS_Controller
 
         $this->load->library('dropbox/Dropbox');
         $this->lang->load('dropbox');
+        $this->lang->load('user_dropbox');
 
         $username = $this->session->userdata('username');
 
@@ -349,6 +350,6 @@ class User_Dropbox extends ClearOS_Controller
             }
         }
 
-        $this->page->view_form('confirm_reset', $data, lang('user_dropbox_app_name'));
+        $this->page->view_form('confirm_reset', $data, lang('dropbox_reset_delete'));
     }
 }

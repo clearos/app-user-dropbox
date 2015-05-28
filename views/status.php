@@ -38,13 +38,20 @@ $this->lang->load('base');
 $this->lang->load('user_dropbox');
 
 ///////////////////////////////////////////////////////////////////////////////
+// Warnings and Information
+///////////////////////////////////////////////////////////////////////////////
+
+if ($wait)
+    echo infobox_info($wait);
+
+///////////////////////////////////////////////////////////////////////////////
 // Form
 ///////////////////////////////////////////////////////////////////////////////
 
 echo form_open('/user_dropbox');
 echo form_header(lang('base_settings'));
 
-echo field_toggle_enable_disable('enabled', $enabled, lang('base_status'));
+echo field_toggle_enable_disable('enabled', $enabled, lang('base_status'), ($size == 0 ? TRUE : FALSE));
 
 echo field_info(
     'size',
@@ -52,19 +59,22 @@ echo field_info(
     byte_format($size)
 );
 // Only show link if Dropbox folder doesn't exist (eg. size == 0)
-if ($size == 0) {
-    echo field_info(
-        'link',
-        lang('user_dropbox_url_link'),
-        anchor_custom($url, lang('user_dropbox_authenticate_to_service'), 'high')
+if ($size == 0)
+    echo field_button_set(
+        array(
+            anchor_custom('/app/user_dropbox', lang('user_dropbox_sync_check'), 'high'),
+            anchor_custom($url, lang('user_dropbox_authenticate_to_service'), 'low', array('target' => '_blank')),
+            anchor_custom('user_dropbox/reset_account', lang('base_reset'), 'low')
+        )
     );
-}
-echo field_button_set(
-    array(
-        form_submit_update('submit'),
-        anchor_custom('user_dropbox/reset_account', lang('base_reset'))
-    )
-);
+else
+    echo field_button_set(
+        array(
+            form_submit_update('submit'),
+            anchor_custom('user_dropbox/reset_account', lang('base_reset'), 'low')
+        )
+    );
+
 
 echo form_footer();
 echo form_close();

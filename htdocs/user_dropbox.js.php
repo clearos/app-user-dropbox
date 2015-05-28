@@ -2,12 +2,11 @@
 
 /**
  * Javascript helper for User Dropbox.
- *
  * @category   apps
  * @package    user-dropbox
  * @subpackage javascript
  * @author     ClearFoundation <developer@clearfoundation.com>
- * @copyright  2011 ClearFoundation
+ * @copyright  2011-2015 ClearFoundation
  * @license    http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
  * @link       http://www.clearfoundation.com/docs/developer/apps/user_dropbox/
  */
@@ -51,7 +50,10 @@ clearos_load_language('user_dropbox');
 
 header('Content-Type: application/x-javascript');
 
-echo "
+?>
+
+var lang_warning = '<?php echo lang('base_warning'); ?>';
+var lang_init_complete = '<?php echo lang('user_dropbox_init_complete'); ?>';
 
 $(document).ready(function() {
     $('#sync_now').click(function(e) {
@@ -87,7 +89,7 @@ function init_progress()
         error: function(xhr, text, err) {
             // Don't display any errors if ajax request was aborted due to page redirect/reload
             if (xhr['abort'] == undefined)
-                clearos_dialog_box('error', '" . lang('base_warning') . "', xhr.responseText.toString());
+                clearos_dialog_box('error', lang_warning, xhr.responseText.toString());
         }
     });
 }
@@ -101,7 +103,7 @@ function log_progress()
         data: 'ci_csrf_token=' + $.cookie('ci_csrf_token'),
         success: function(data) {
             if (data.code == 0) {
-                $('#step_2_help').html('" . lang('user_dropbox_init_complete') . "');
+                $('#step_2_help').html(lang_init_complete);
                 $('#sync_url').attr('href', data.url);
                 $('#sync_status').hide();
                 $('#sync_url_link').show();
@@ -119,9 +121,8 @@ function log_progress()
         error: function(xhr, text, err) {
             // Don't display any errors if ajax request was aborted due to page redirect/reload
             if (xhr['abort'] == undefined)
-                clearos_dialog_box('error', '" . lang('base_warning') . "', xhr.responseText.toString());
+                clearos_dialog_box('error', lang_warning, xhr.responseText.toString());
         }
     });
 }
-";
 // vim: syntax=javascript ts=4
