@@ -16,6 +16,7 @@ $lang['user_dropbox_not_available_for_root_account'] = 'Sorry, the Dropbox servi
 $lang['user_dropbox_starting_account_init'] = 'Starting account initialization... please be patient.';
 $lang['user_dropbox_step_1'] = 'Step 1 of 2';
 $lang['user_dropbox_step_2'] = 'Step 2 of 2';
+$lang['user_dropbox_sync_check'] = 'Check Sync';
 $lang['user_dropbox_sync_now'] = 'Synchronize Now';
 $lang['user_dropbox_url_link'] = 'Dropbox URL Link';
 $lang['user_dropbox_waiting_confirmation'] = 'Waiting for Dropbox account synchronization authentication to complete.  Please click on the Dropbox URL Link below if you have not visited the Dropbox site and linked your account.';
