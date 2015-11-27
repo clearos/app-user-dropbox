@@ -1,7 +1,7 @@
 
 Name: app-user-dropbox
 Epoch: 1
-Version: 1.7.0
+Version: 2.1.0
 Release: 1%{dist}
 Summary: Dropbox
 License: GPLv3
@@ -23,7 +23,6 @@ Requires: app-base-core
 Requires: app-accounts-core
 Requires: app-dropbox-core
 Requires: app-user-dropbox-plugin-core
-Requires: system-users-driver
 
 %description core
 Dropbox is a cloud-based file storage and synchronization service.  Use this app to synchronize files to a folder located in your home directory which can then be accessed by any device associated to the same Dropbox account (laptop, mobile, tablet etc.).

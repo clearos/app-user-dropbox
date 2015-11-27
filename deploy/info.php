@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'user_dropbox';
-$app['version'] = '1.7.0';
+$app['version'] = '2.1.0';
 $app['release'] = '1';
 $app['vendor'] = 'ClearFoundation';
 $app['packager'] = 'ClearFoundation';
@@ -42,7 +42,6 @@ $app['core_requires'] = array(
     'app-accounts-core',
     'app-dropbox-core',
     'app-user-dropbox-plugin-core',
-    'system-users-driver'
 );
 
 $app['core_file_manifest'] = array(
