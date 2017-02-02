@@ -75,22 +75,22 @@ function init_progress()
         dataType: 'json',
         url: '/app/user_dropbox/init_account',
         data: 'ci_csrf_token=' + $.cookie('ci_csrf_token'),
-        success: function(data) {
-            if (data.code == 0) {
-                window.setTimeout(log_progress, 3000);
-            } else {
-                $('#sync_status').html(data.errmsg);
-                // Hack...just change the font to more 'alerty'
-                $('#sync_status').addClass('theme-validation-error');
-                window.setTimeout(init_progress, 5000);
-            }
-
-        },
-        error: function(xhr, text, err) {
-            // Don't display any errors if ajax request was aborted due to page redirect/reload
-            if (xhr['abort'] == undefined)
-                clearos_dialog_box('error', lang_warning, xhr.responseText.toString());
+        timeout: 3000
+    }).done(function(data) {
+        if (data.code == 0) {
+            window.setTimeout(log_progress, 3000);
+        } else {
+            $('#sync_status').html(data.errmsg);
+            // Hack...just change the font to more 'alerty'
+            $('#sync_status').addClass('theme-validation-error');
+            window.setTimeout(init_progress, 3000);
         }
+    }).fail(function(xhr, text, err) {
+        if (text === 'timeout')
+            window.setTimeout(init_progress, 3000);
+        // Don't display any errors if ajax request was aborted due to page redirect/reload
+        if (xhr['abort'] == undefined)
+            clearos_dialog_box('error', lang_warning, xhr.responseText.toString());
     });
 }
 

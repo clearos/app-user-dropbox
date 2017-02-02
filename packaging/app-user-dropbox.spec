@@ -1,7 +1,7 @@
 
 Name: app-user-dropbox
 Epoch: 1
-Version: 2.1.1
+Version: 2.3.0
 Release: 1%{dist}
 Summary: Dropbox
 License: GPLv3
