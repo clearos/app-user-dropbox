@@ -75,7 +75,7 @@ function init_progress()
         dataType: 'json',
         url: '/app/user_dropbox/init_account',
         data: 'ci_csrf_token=' + $.cookie('ci_csrf_token'),
-        timeout: 3000
+        timeout: 5000
     }).done(function(data) {
         if (data.code == 0) {
             window.setTimeout(log_progress, 3000);
@@ -83,7 +83,7 @@ function init_progress()
             $('#sync_status').html(data.errmsg);
             // Hack...just change the font to more 'alerty'
             $('#sync_status').addClass('theme-validation-error');
-            window.setTimeout(init_progress, 3000);
+            window.setTimeout(init_progress, 5000);
         }
     }).fail(function(xhr, text, err) {
         if (text === 'timeout')

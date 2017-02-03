@@ -51,7 +51,7 @@ if ($wait)
 echo form_open('/user_dropbox');
 echo form_header(lang('base_settings'));
 
-echo field_toggle_enable_disable('enabled', $enabled, lang('base_status'), ($size == 0 ? TRUE : FALSE));
+echo field_toggle_enable_disable('enabled', $enabled, lang('base_status'));
 
 echo field_info(
     'size',
@@ -59,7 +59,7 @@ echo field_info(
     byte_format($size)
 );
 // Only show link if Dropbox folder doesn't exist (eg. size == 0)
-if ($size == 0)
+if (!$is_linked)
     echo field_button_set(
         array(
             anchor_custom('/app/user_dropbox', lang('user_dropbox_sync_check'), 'high'),
